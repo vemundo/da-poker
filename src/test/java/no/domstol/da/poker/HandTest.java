@@ -24,7 +24,8 @@ public class HandTest {
     @Test
     public void testShortHand() {
         // Skal kaste exception, bare to unike kort på handa
-        assertThrows(Exception.class, () -> new Hand(hjerterEss, sparEss, hjerterEss, sparEss, hjerterEss));
+        Throwable ignore = assertThrows(Exception.class, () -> new Hand(hjerterEss, sparEss, hjerterEss, sparEss, hjerterEss));
+        System.out.println("Got exception as expected: " + ignore.getMessage());
     }
 
     @Test

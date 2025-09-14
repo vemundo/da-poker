@@ -17,7 +17,7 @@ public final class Hand implements Comparable<Hand>{
 
     public static final int ANTALL_KORT = 5;
 
-    private final SortedSet<Kort> kortHand = new TreeSet<>();
+    private final SortedSet<Kort> kortHand = new TreeSet<>(Collections.reverseOrder());
     private Map<Verdi, Long> mapVerdiTilAntall;
     private final Map<Integer, List<Verdi>> mapAntallTilVerdier = new HashMap<>();;
 
