@@ -1,11 +1,11 @@
 # da-poker
 DA - poker oppgave
 
-Antagelser:
+## Antagelser
 
-- Ess rangeres som høyeste kort, ikke laveste.
+* Ess rangeres som høyeste kort, ikke laveste.
 
-Funksjonalitet:
+## Funksjonalitet
 
 Programmet skal kunne identifisere følgende pokerhender:
 • Par
@@ -16,3 +16,11 @@ Programmet skal kunne identifisere følgende pokerhender:
 • Fullt hus (tre like + ett par)
 • Fire like
 • Straight flush (sekvens av fem påfølgende kort i samme sort)
+
+## Bygge og kjøre
+
+mvn compile
+java.exe -cp target\classes no.domstol.da.poker.Poker
+
+mvn package
+java.exe -cp target\poker-1.0-SNAPSHOT.jar no.domstol.da.poker.Poker

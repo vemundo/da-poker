@@ -13,11 +13,11 @@ public final class Kortstokk {
     private final List<Kort> kort =  new ArrayList<>();
 
     public Kortstokk() {
-        resett();
-        stokk();
+        ny();
+        bland();
     }
 
-    public void resett() {
+    public void ny() {
         kort.clear();
         for (Sort suit : Sort.values()) {
             for (Verdi rank : Verdi.values()) {
@@ -26,15 +26,20 @@ public final class Kortstokk {
         }
     }
 
-    public void stokk() {
+    public void bland() {
+        System.out.println("Blander kortstokk");
         Collections.shuffle(kort);
     }
 
-    public int count() {
+    public int tellKort() {
         return kort.size();
     }
 
-    public Kort draw() {
+    public Kort trekkKort() {
         return kort.removeFirst();
+    }
+
+    public Hand trekkHand() throws Exception {
+        return new Hand(this);
     }
 }
