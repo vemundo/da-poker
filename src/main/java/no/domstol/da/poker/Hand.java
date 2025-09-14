@@ -124,9 +124,9 @@ public final class Hand implements Comparable<Hand>{
             }
             case TO_PAR -> {
                 List<Verdi> verdier = this.mapAntallTilVerdier.get(2);
-                Collections.sort(verdier);
+                Collections.sort(verdier, Collections.reverseOrder());
                 List<Verdi> andreVerdier = o.mapAntallTilVerdier.get(2);
-                Collections.sort(andreVerdier);
+                Collections.sort(andreVerdier, Collections.reverseOrder());
                 // Først sammenlign det høyeste paret for begge hender
                 if (!verdier.getFirst().equals(andreVerdier.getFirst())) {
                     yield verdier.getFirst().compareTo(andreVerdier.getFirst());
@@ -151,7 +151,9 @@ public final class Hand implements Comparable<Hand>{
 
     private int compareSingle(Hand o) {
         List<Verdi> single = mapAntallTilVerdier.get(1);
+        Collections.sort(single, Collections.reverseOrder());
         List<Verdi> andreSingle = o.mapAntallTilVerdier.get(1);
+        Collections.sort(andreSingle, Collections.reverseOrder());
         for (int i=0 ; i<single.size() ; i++) {
             if (!single.get(i).equals(andreSingle.get(i))) {
                 return single.get(i).compareTo(andreSingle.get(i));

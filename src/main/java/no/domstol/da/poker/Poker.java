@@ -18,7 +18,7 @@ public class Poker {
         if (hand1.erBedreEnn(hand2)) {
             System.out.println("Den beste handen er " + hand1);
         } else if (hand1.erDårligereEnn(hand2)) {
-            System.out.println("Den beste handen er " + hand2);
+            System.out.println("Den dårligste handen er " + hand1);
         } else if (hand1.erLikeGodSom(hand2)) {
             System.out.println("Begge hender er like gode");
         }
