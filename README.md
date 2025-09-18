@@ -27,11 +27,13 @@ Om symboler ikke virker kan det slås av og på med -Dbruksymboler=true/false
 ## Bygge og kjøre
 
 > mvn compile
+>
 > java.exe -cp target\classes no.domstol.da.poker.Poker
 
 eller
 
 > mvn package
+>
 > java.exe -cp target\poker-1.0-SNAPSHOT.jar no.domstol.da.poker.Poker
 
 Uten symboler for sort:
