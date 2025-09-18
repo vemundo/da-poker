@@ -1,11 +1,10 @@
-# da-poker
-Domstoladministrasjonen - poker oppgave
+# Domstoladministrasjonen - poker oppgave
 
 ## Antagelser
 
 * Rangering av kategorier og pokerhender basert på https://en.wikipedia.org/wiki/List_of_poker_hands
 * Ess rangeres som høyeste kort, ikke laveste.
-* Sammenligninger basert på at alle hender trekkes fra samme tanderd kortstokk, som begrenser mulige kombinasjoner.
+* Sammenligninger basert på at alle hender trekkes fra en enkelt standard kortstokk, som implisitt begrenser mulige kombinasjoner.
 
 ## Funksjonalitet
 

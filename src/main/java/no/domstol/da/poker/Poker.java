@@ -8,7 +8,6 @@ public class Poker {
 
     public static void main(String[] args) throws Exception {
         System.out.println("Starter poker program");
-        System.out.println("bruksymboler = " + System.getProperty("bruksymboler", "TRUE"));
         System.setProperty("stdout.encoding", "UTF-8");
         System.setProperty("file.encoding", "UTF-8");
         Kortstokk kortstokk = new Kortstokk();
