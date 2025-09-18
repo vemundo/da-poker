@@ -60,11 +60,12 @@ public final class PokerHand implements Comparable<PokerHand>{
         if (mapVerdiTilAntall.containsValue(4L)) {
             return Kategori.FIRE_LIKE;
         }
-        if(mapVerdiTilAntall.containsValue(3L) && mapVerdiTilAntall.containsValue(2L)) {
-            return Kategori.FULLT_HUS;
-        }
-        if(mapVerdiTilAntall.containsValue(3L)) {
-            return Kategori.TRE_LIKE;
+        if  (mapVerdiTilAntall.containsValue(3L)) {
+            if (mapVerdiTilAntall.containsValue(2L)) {
+                return Kategori.FULLT_HUS;
+            } else {
+                return Kategori.TRE_LIKE;
+            }
         }
         if(flush) {
             return Kategori.FLUSH;
