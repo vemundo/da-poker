@@ -1,7 +1,7 @@
 package no.domstol.da.poker;
 
 /**
- *
+ * Denne enumen representerer de fire fargene i en standard kortstokk.
  * @author vemund
  */
 public enum Sort {
@@ -11,6 +11,7 @@ public enum Sort {
     RUTER("\u2666");
 
     private final String symbol;
+    private final boolean brukSymboler = Boolean.parseBoolean(System.getProperty("bruksymboler", "TRUE"));
 
     Sort(String symbol) {
         this.symbol = symbol;
@@ -18,6 +19,6 @@ public enum Sort {
 
     @Override
     public String toString() {
-        return symbol;
+        return brukSymboler ? symbol : "-" + name();
     }
 }

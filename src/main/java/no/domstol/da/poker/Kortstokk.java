@@ -5,7 +5,8 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- *
+ * Denne klassen representerer en standard kortstokk med 52 kort.
+ * Kortstokken kan blandes, og kort kan trekkes fra toppen av stokken.
  * @author vemund
  */
 public final class Kortstokk {
@@ -39,7 +40,7 @@ public final class Kortstokk {
         return kort.removeFirst();
     }
 
-    public Hand trekkHand() throws Exception {
-        return new Hand(this);
+    public PokerHand trekkHand() throws Exception {
+        return new PokerHand(this);
     }
 }

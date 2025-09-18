@@ -1,7 +1,7 @@
 package no.domstol.da.poker;
 
 /**
- *
+ * Denne enumen representerer verdiene i en standard kortstokk.
  * @author vemund
  */
 public enum Verdi {
@@ -19,16 +19,16 @@ public enum Verdi {
     KONGE(13, "K"),
     ESS(14, "A");
 
-    private final int rangering;
+    private final int tall;
     private final String symbol;
 
-    Verdi(int rangering, String symbol) {
-        this.rangering = rangering;
+    Verdi(int tall, String symbol) {
+        this.tall = tall;
         this.symbol = symbol;
     }
 
-    public int getRangering() {
-        return rangering;
+    public int getTall() {
+        return tall;
     }
 
     @Override

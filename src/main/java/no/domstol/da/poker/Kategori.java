@@ -1,8 +1,8 @@
 package no.domstol.da.poker;
 
 /**
- *
- * @author vemun
+ * Denne enumen representerer de ulike pokerkategoriene, rangert fra lavest til høyest.
+ * @author vemund
  */
 public enum Kategori {
     INGEN_PAR(1),

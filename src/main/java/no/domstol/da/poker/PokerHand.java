@@ -10,10 +10,11 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 /**
- *
+ * Denne klassen representerer en pokerhand med 5 kort.
+ * Hånden evalueres ved konstruksjon og kan sammenlignes med andre hender.
  * @author vemund
  */
-public final class Hand implements Comparable<Hand>{
+public final class PokerHand implements Comparable<PokerHand>{
 
     public static final int ANTALL_KORT = 5;
 
@@ -23,7 +24,7 @@ public final class Hand implements Comparable<Hand>{
 
     private final Kategori kategori;
 
-    public Hand(Kortstokk stokk) throws Exception {
+    public PokerHand(Kortstokk stokk) throws Exception {
         for (int i=0 ; i<ANTALL_KORT ; i++) {
             kortHand.add(stokk.trekkKort());
         }
@@ -31,9 +32,9 @@ public final class Hand implements Comparable<Hand>{
     }
 
     /**
-     * For testing
+     * For testing hovesaklig
      */
-    Hand(Kort kort1, Kort kort2, Kort kort3, Kort kort4, Kort kort5) throws Exception {
+    PokerHand(Kort kort1, Kort kort2, Kort kort3, Kort kort4, Kort kort5) throws Exception {
         kortHand.add(kort1);
         kortHand.add(kort2);
         kortHand.add(kort3);
@@ -88,7 +89,7 @@ public final class Hand implements Comparable<Hand>{
     private boolean isStraight() {
         Kort forrige = null;
         for (Kort kort : kortHand) {
-            if (forrige != null && kort.verdi().getRangering() - forrige.verdi().getRangering() != 1) {
+            if (forrige != null && forrige.verdi().getTall() - kort.verdi().getTall() != 1) {
                 return false;
             }
             forrige = kort;
@@ -97,7 +98,7 @@ public final class Hand implements Comparable<Hand>{
     }
 
     @Override
-    public int compareTo(Hand o) {
+    public int compareTo(PokerHand o) {
         if (!this.kategori.equals(o.kategori)) {
             return this.kategori.getRangering() - o.kategori.getRangering();
         }
@@ -133,7 +134,7 @@ public final class Hand implements Comparable<Hand>{
                 }
                 // Så sammenlign det laveste paret for begge hender
                 if (!verdier.getLast().equals(andreVerdier.getLast())) {
-                    yield verdier.getFirst().compareTo(andreVerdier.getFirst());
+                    yield verdier.getLast().compareTo(andreVerdier.getLast());
                 }
                 // Så sammenlign de gjenværende single i rekkefølge
                 yield compareSingle(o);
@@ -149,7 +150,7 @@ public final class Hand implements Comparable<Hand>{
         };
     }
 
-    private int compareSingle(Hand o) {
+    private int compareSingle(PokerHand o) {
         List<Verdi> single = mapAntallTilVerdier.get(1);
         Collections.sort(single, Collections.reverseOrder());
         List<Verdi> andreSingle = o.mapAntallTilVerdier.get(1);
@@ -172,15 +173,15 @@ public final class Hand implements Comparable<Hand>{
         return kategori;
     }
 
-    public boolean erLikeGodSom(Hand o) {
+    public boolean erLikeGodSom(PokerHand o) {
         return compareTo(o) == 0;
     }
 
-    public boolean erBedreEnn(Hand o) {
+    public boolean erBedreEnn(PokerHand o) {
         return compareTo(o) > 0;
     }
 
-    public boolean erDårligereEnn(Hand o) {
+    public boolean erDårligereEnn(PokerHand o) {
         return compareTo(o) < 0;
     }
 }
